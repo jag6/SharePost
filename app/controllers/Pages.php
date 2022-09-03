@@ -169,10 +169,26 @@
                     $form_data['password_error'] = 'Password must be at least 8 characters';
                 }
 
+                //check for user/email
+                if($this -> userModel -> findUserByEmail($form_data['email'])){
+                    //user found
+                }else {
+                    //user not found
+                    $form_data['email_error'] = 'No user found';
+                }
+
                 //make sure errors are empty
                 if(empty($form_data['email_error']) && empty($form_data['password_error'])){
                     //validated
-                    die('SUCCESS');
+                    //check and set logged in user
+                    $loggedInUser = $this -> userModel -> login($form_data['email'], $form_data['password']);
+                    if($loggedInUser){
+                        //create session
+                        $this -> createUserSession($loggedInUser);
+                    }else {
+                        $form_data['password_error'] = 'Password incorrect';
+                        $this -> view('pages/login', $data, $form_data);
+                    }
                 }else {
                     //load view with errors
                     $this -> view('pages/login', $data, $form_data);
@@ -196,6 +212,29 @@
 
                 //load view
                 $this -> view('pages/login', $data, $form_data);
+            }
+        }
+
+        public function createUserSession($user){
+            $_SESSION['user_id'] = $user -> id;
+            $_SESSION['user_name'] = $user -> name;
+            $_SESSION['user_email'] = $user -> email;
+            redirect('/index');
+        }
+
+        public function logout(){
+            unset($_SESSION['user_id']);
+            unset($_SESSION['user_name']);
+            unset($_SESSION['user_email']);
+            session_destroy();
+            redirect('/login');
+        }
+
+        public function isLoggedIn(){
+            if(isset($_SESSION['user_id'])){
+                return true;
+            }else {
+                return false;
             }
         }
     }

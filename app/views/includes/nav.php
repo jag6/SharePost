@@ -16,12 +16,18 @@
         </div>
         <div class="navbar-right">
             <ul>
+                <?php if(isset($_SESSION['user_id'])) :?>
+                <li>
+                    <a href="<?php echo URLROOT; ?>/logout">LOGOUT</a>
+                </li>
+                <?php else : ?>
                 <li>
                     <a href="<?php echo URLROOT; ?>/register">REGISTER</a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/login">LOGIN</a>
                 </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
