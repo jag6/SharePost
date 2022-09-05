@@ -2,6 +2,7 @@
     class Pages extends Controller {
         public function __construct(){
             $this -> userModel = $this -> model('User');
+            $this -> postModel = $this -> model('Post');
         }
 
         public function index(){
@@ -11,7 +12,6 @@
                 'meta_title' => 'SharePost: Your Blogtopia',
                 'meta_description' => 'Welcome to your blogging parardise. Here you will find millions of interesting articles perfectly tailored for your reading pleasure and needs'
             ];
-
             $this -> view('pages/index', $data);
         }
 
@@ -219,7 +219,7 @@
             $_SESSION['user_id'] = $user -> id;
             $_SESSION['user_name'] = $user -> name;
             $_SESSION['user_email'] = $user -> email;
-            redirect('/index');
+            redirect('posts');
         }
 
         public function logout(){
@@ -227,14 +227,24 @@
             unset($_SESSION['user_name']);
             unset($_SESSION['user_email']);
             session_destroy();
-            redirect('/login');
+            redirect('login');
         }
 
-        public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
-                return true;
-            }else {
-                return false;
+        public function posts(){
+            $posts = $this -> postModel -> getPosts();
+
+            $data = [
+                'description' => 'Write your little heart out',
+                'meta_title' => 'Posts',
+                'meta_description' => 'Write your little heart out',
+                'posts' => $posts
+            ];
+
+            $this -> view('pages/posts/index', $data);
+
+            if(!isLoggedIn()){
+                redirect('login');
             }
+
         }
     }

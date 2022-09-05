@@ -1,8 +1,7 @@
 <head>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="<?php echo URLROOT; ?>/public/images/logo.png" type="image/png">
+    <link rel="shortcut icon" href="<?php echo URLROOT; ?>/public/images/logo.svg" type="image/svg">
     <!-- MetaData -->
     <meta name="description" content="<?php echo $data['meta_description']; ?>">
     <meta name="author" content="">
