@@ -22,6 +22,21 @@
 
             return $results;
         }
+
+        public function savePost($form_data){
+            $this -> db -> query('INSERT INTO posts (title, body, user_id) VALUES(:title, :body, :user_id)');
+            //bind values
+            $this -> db -> bind(':title', $form_data['title']);
+            $this -> db -> bind(':body', $form_data['body']);
+            $this -> db -> bind(':user_id', $form_data['user_id']);
+
+            //execute 
+            if($this -> db -> execute()){
+                return true;
+            }else {
+                return false;
+            }
+        }
     }
 
     

@@ -231,20 +231,78 @@
         }
 
         public function posts(){
-            $posts = $this -> postModel -> getPosts();
-
-            $data = [
-                'description' => 'Write your little heart out',
-                'meta_title' => 'Posts',
-                'meta_description' => 'Write your little heart out',
-                'posts' => $posts
-            ];
-
-            $this -> view('pages/posts/index', $data);
-
             if(!isLoggedIn()){
                 redirect('login');
             }
 
+            $posts = $this -> postModel -> getPosts();
+
+            $data = [
+                'description' => 'A collection of all my posts',
+                'meta_title' => 'Posts',
+                'meta_description' => 'A collection of all my posts',
+                'posts' => $posts
+            ];
+
+            $this -> view('pages/posts/index', $data);
+        }
+
+        public function new(){
+            if(!isLoggedIn()){
+                redirect('login');
+            }
+
+            $data = [
+                'description' => 'Write a new post with this form',
+                'meta_title' => 'New Post',
+                'meta_description' => 'Write a new post'
+            ];
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                //sanitize post array
+                $_POST = filter_input_array(htmlspecialchars(INPUT_POST));
+
+                $form_data = [
+                    'title' => trim($_POST['title']),
+                    'body' => trim($_POST['body']),
+                    'user_id' => $_SESSION['user_id'],
+                    'title_error' => '',
+                    'body_error' => ''
+                ];
+
+                //validate title
+                if(empty($form_data['title'])){
+                    $form_data['title_error'] = 'Please enter title';
+                }
+
+                //validate body
+                if(empty($form_data['body'])){
+                    $form_data['body_error'] = 'Please enter body text';
+                }
+
+                //make sure errors are empty
+                if(empty($form_data['title_error']) && empty($form_data['body_error'])){
+                    //validated
+                    if($this -> postModel -> savePost($form_data)){
+                        flash('post_message', 'Post Saved!');
+                        redirect('posts');
+                    }else {
+                        die('Something went wrong');
+                    }
+
+                }else {
+                    //load view with errors
+                    $this -> view('pages/posts/new', $data, $form_data);
+                }
+
+            }else {
+                $form_data = [
+                    'title' => '',
+                    'body' => '',
+                    'title_error' => '',
+                    'body_error' => ''
+                ];
+            }
+            $this -> view('pages/posts/new', $data, $form_data);
         }
     }

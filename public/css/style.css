@@ -38,7 +38,7 @@ html, body {
 body {
     font-size: 8px;
     font-family: 'Noto Sans', 'sans-serif';
-    background-color: #f3f3f3;
+    background-color: #e7e7e7;
 }
 
 main {
@@ -80,6 +80,10 @@ h5, label, input, textarea {
 p {
     font-size: 16px;
     line-height: 32px;
+}
+
+a {
+    color: #000;
 }
 
 label {
@@ -195,7 +199,7 @@ footer {
 
 /*REGISTER + LOGIN FORM*/
 
-.user-form {
+.form {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -215,12 +219,12 @@ footer {
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-.user-form .top-container {
+.form .top-container {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.user-form .top-container h1 {
+.form .top-container h1 {
     font-size: 32px;
     line-height: 64px;
 }
@@ -233,31 +237,31 @@ footer {
     margin-bottom: 1rem;
 }
 
-.user-form-btns {
+.form-btns {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     margin-top: 2rem;
 }
 
-.user-form button, .user-form a {
+.form-btns button, .form-btns a {
     font-size: 24px;
     line-height: 48px;
     font-weight: 700;
     background-color: #FFEA47;
 }
 
-.user-form button:hover {
+.form-btns button:hover {
     background-color: #0790A3;
 }
 
-.user-form a {
+.form-btns a {
     color: #054D57; 
     background-color: transparent;
     border-bottom: 4px solid transparent;
 }
 
-.user-form a:hover {
+.form-btns a:hover {
     border-bottom: 4px solid #054D57;
     transition: .2s ease-in-out;
 }
@@ -284,22 +288,22 @@ footer {
 }
 
 @media only screen and (min-width: 0px) and (max-width: 576px) {
-    .user-form-btns {
+    .form-btns {
         flex-direction: column;
         justify-content: center;
         padding-top: 2rem;
         margin: 0 auto;
     }
 
-    .user-form-btns div:first-of-type {
+    .form-btns div:first-of-type {
         margin-bottom: 1rem;
     }
 
-    .user-form button {
+    .form button {
         width: 100%;
     }
 
-    .user-form-btns div:last-of-type {
+    .form-btns div:last-of-type {
         display: flex;
         justify-content: center;
         margin: 0 auto;
@@ -318,7 +322,7 @@ footer {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    padding: 2rem 5%;
+    padding: 0 5%;
     padding-bottom: 2rem;
     justify-content: center;
     max-width: 900px;
@@ -330,10 +334,16 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 4rem;
 }
 
-.posts-header a {
+.phi {
+    border-bottom: .5rem solid #054D57;
+    margin-bottom: 2rem;
+    background-color: #f3f3f3;
+    padding: 2rem 5% 4rem 5%;
+}
+
+.posts-header a, .back-btn a {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -341,15 +351,16 @@ footer {
     font-size: 24px;
     line-height: 48px;
     font-weight: 700;
-    background-color: #FFEA47;
     color: #000;
-    border-radius: 20px;
     cursor: pointer;
+    height: 64px;
+    background-color: #FFEA47;
+    border-radius: 20px;
     width: 230px;
     height: 64px;
 }
 
-.posts-header a:hover {
+.posts-header a:hover, .back-btn a:hover {
     opacity: .8;
 }
 
@@ -360,6 +371,19 @@ footer {
 
 .post {
     margin-bottom: 4rem;
+    padding: 1rem 5% 2rem 5%;
+    background-color: #f3f3f3;
+    border-radius: 20px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.posts .form-group {
+    margin-bottom: 2rem;
 }
 
 .post-body div {
@@ -379,4 +403,39 @@ footer {
 .post-body a:hover {
     background-color: #0790A3;
     color: #000;
+}
+
+.back-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-bottom: 4rem;
+}
+
+.back-btn a {
+    background-color: #FFEA47;
+    width: 150px;
+    font-size: 18px;
+    line-height: 32px;
+    height: 56px;
+}
+
+.cancel-btn a {
+    color: #C74F4C;
+}
+
+.cancel-btn a:hover {
+    border-bottom: 4px solid #C74F4C;
+    transition: .2s ease-in-out;
+}
+
+.new {
+    background-color: #c7c7c7;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-top: 2rem;
+}
+
+.new-header {
+    padding: 0 0 4rem 0;
 }

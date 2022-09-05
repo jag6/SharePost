@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>
-    <section class="user-form">
+    <section class="form">
         <?php flash('register_success'); ?></php>
         <?php require APPROOT . '/views/includes/topContainer.php'; ?>
         <form action="<?php echo URLROOT; ?>/login" method="post">
@@ -13,7 +13,7 @@
                 <input type="password" name="password" class="<?php echo (!empty($form_data['password_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['password']; ?>">
                 <span class="invalid"><?php echo $form_data['password_error']; ?></span>
             </div>
-            <div class="user-form-btns">
+            <div class="form-btns">
                 <div>
                     <button type="submit">LOGIN</button>
                 </div>

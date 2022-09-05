@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>
 
-    <section class="user-form">
+    <section class="form">
         <?php require APPROOT . '/views/includes/topContainer.php'; ?>
         <form action="<?php echo URLROOT; ?>/register" method="post">
             <div class="form-group">
@@ -23,7 +23,7 @@
                 <input type="password" name="confirm_password" class="<?php echo (!empty($form_data['confirm_password_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['confirm_password']; ?>">
                 <span class="invalid"><?php echo $form_data['confirm_password_error']; ?></span>
             </div>
-            <div class="user-form-btns">
+            <div class="form-btns">
                 <div>
                     <button type="submit">REGISTER</button>
                 </div>

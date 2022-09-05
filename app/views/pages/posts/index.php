@@ -1,8 +1,9 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>
+    <?php flash('post_message'); ?>
     <section class="posts">
-        <section class="posts-header">
+        <section class="posts-header phi">
             <h1>Posts</h1>
-            <a href="<?php echo URLROOT; ?>/posts/add"><img src="<?php echo URLROOT; ?>/public/images/pencil.svg" alt="pencil">New Post</a>
+            <a href="<?php echo URLROOT; ?>/new"><img src="<?php echo URLROOT; ?>/public/images/pencil.svg" alt="pencil">New Post</a>
         </section>
         <?php foreach($data['posts'] as $post) : ?>
             <section class="post">
@@ -17,9 +18,10 @@
                 <div class="post-body">
                     <p><?php echo $post -> body; ?></p>
                     <div>
-                        <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post -> postId; ?>">Read More</a>
+                        <a href="<?php echo URLROOT; ?>/show/<?php echo $post -> postId; ?>">Read More</a>
                     </div>
                 </div>
+                <div class="line-break"></div>
             </section>
         <?php endforeach; ?>
     </section>
