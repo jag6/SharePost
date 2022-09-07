@@ -23,7 +23,7 @@
                 <input type="password" name="confirm_password" class="<?php echo (!empty($form_data['confirm_password_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['confirm_password']; ?>">
                 <span class="invalid"><?php echo $form_data['confirm_password_error']; ?></span>
             </div>
-            <div class="form-btns">
+            <div class="form-btns log-reg-btns">
                 <div>
                     <button type="submit">REGISTER</button>
                 </div>

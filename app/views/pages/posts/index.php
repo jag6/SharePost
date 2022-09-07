@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>
-    <?php flash('post_message'); ?>
     <section class="posts">
+        <?php flash('post_message'); ?>
         <section class="posts-header phi">
             <h1>Posts</h1>
             <a href="<?php echo URLROOT; ?>/new"><img src="<?php echo URLROOT; ?>/public/images/pencil.svg" alt="pencil">New Post</a>
@@ -16,7 +16,7 @@
                     </div>
                 </section>
                 <div class="post-body">
-                    <p><?php echo $post -> body; ?></p>
+                    <p><?php echo substr($post -> body, 0, 300); ?>...</p>
                     <div>
                         <a href="<?php echo URLROOT; ?>/show/<?php echo $post -> postId; ?>">Read More</a>
                     </div>

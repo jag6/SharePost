@@ -109,7 +109,8 @@ button {
 
 @media only screen and (min-width: 0px) and (max-width: 576px) {
     h1 {
-        font-size: 60px;
+        font-size: 56px;
+        line-height: 72px;
     }
 }
 
@@ -172,6 +173,11 @@ nav div ul li a:hover {
     border-bottom: 2px solid #fff;
 }
 
+.user-name-nav:hover {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
 
 /*FOOTER*/
 
@@ -194,6 +200,11 @@ footer {
 
 .top-container {
     padding-top: 2rem;
+}
+
+/*FLASH*/
+#msg-flash {
+    padding-bottom: 2rem;
 }
 
 
@@ -288,27 +299,26 @@ footer {
 }
 
 @media only screen and (min-width: 0px) and (max-width: 576px) {
-    .form-btns {
+    .log-reg-btns {
         flex-direction: column;
         justify-content: center;
         padding-top: 2rem;
         margin: 0 auto;
     }
 
-    .form-btns div:first-of-type {
+    .log-reg-btns div:first-of-type {
         margin-bottom: 1rem;
     }
 
-    .form button {
+    .log-reg-btns button {
         width: 100%;
     }
 
-    .form-btns div:last-of-type {
+    .log-reg-btns div:last-of-type {
         display: flex;
         justify-content: center;
         margin: 0 auto;
     }
-
 
    .navbar-right {
         display: none;
@@ -386,11 +396,27 @@ footer {
     margin-bottom: 2rem;
 }
 
-.post-body div {
+.posts .form-group label {
+    margin-bottom: .5rem;
+}
+
+.post-title div {
+    margin-top: .5rem;
+}
+
+.post-author p {
+    text-align: center;
+}
+
+.post-body {
     margin-top: 1rem;
 }
 
-.post-body div a {
+.post-body div {
+    margin-top: 2rem;
+}
+
+.post-body a, .post-body form button  {
     font-size: 21px;
     line-height: 32px;
     font-weight: 700;
@@ -400,9 +426,8 @@ footer {
     border-radius: 20px;
 }
 
-.post-body a:hover {
-    background-color: #0790A3;
-    color: #000;
+.post-body a:hover, .post-body form button:hover {
+    opacity: .8;
 }
 
 .back-btn {
@@ -418,6 +443,10 @@ footer {
     font-size: 18px;
     line-height: 32px;
     height: 56px;
+}
+
+.back-btn img {
+    margin-right: .5rem;
 }
 
 .cancel-btn a {
@@ -438,4 +467,61 @@ footer {
 
 .new-header {
     padding: 0 0 4rem 0;
+}
+
+.show {
+    padding-top: 2rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    justify-content: center;
+}
+
+.show h1 {
+    text-align: center;
+}
+
+.show .post-body {
+    margin-top: 4rem;
+}
+
+.post-body p {
+    font-weight: 700;
+}
+
+.show-btns {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+.show-btns form button {
+    background-color: #C74F4C;
+    color: #000;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+    .posts-header {
+        flex-direction: column;
+    }
+
+    .post-title h1, .post-author p {
+        text-align: left;
+    }
+
+    .posts-header a {
+        margin-top: 2rem;
+    }
+
+    .show-btns a, .show-btns form {
+        width: 50%;
+    }
+
+    .show-btns a {
+        text-align: center;
+        margin-right: 1rem;
+    }
 }

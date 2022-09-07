@@ -13,7 +13,7 @@
                 <input type="password" name="password" class="<?php echo (!empty($form_data['password_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['password']; ?>">
                 <span class="invalid"><?php echo $form_data['password_error']; ?></span>
             </div>
-            <div class="form-btns">
+            <div class="form-btns log-reg-btns">
                 <div>
                     <button type="submit">LOGIN</button>
                 </div>

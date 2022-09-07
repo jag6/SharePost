@@ -13,7 +13,7 @@
         }
 
         //load view
-        public function view($view, $data = [], $form_data = []){
+        public function view($view, $meta_data = [], $data = [], $form_data = []){
             //check for view file
             if(file_exists('../app/views/' . $view . '.php')){
                 require_once '../app/views/' . $view . '.php';

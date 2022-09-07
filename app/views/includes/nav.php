@@ -14,11 +14,20 @@
                 </li>
             </ul>
         </div>
+        <?php if(isset($_SESSION['user_id'])) :?>
+        <div>
+            <ul>
+                <li>
+                    <a href="<?php echo URLROOT; ?>/posts">POSTS</a>
+                </li>
+            </ul>
+        </div>
+        <?php endif; ?>
         <div class="navbar-right">
             <ul>
                 <?php if(isset($_SESSION['user_id'])) :?>
                 <li>
-                    <a href="<?php echo URLROOT; ?>/posts">POSTS</a>
+                    <a class="user-name-nav" href="">Welcome, <?php echo $_SESSION['user_name']; ?></a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/logout">LOGOUT</a>
