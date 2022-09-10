@@ -12,11 +12,13 @@
                         <h2><?php echo $post -> title; ?></h2>
                     </section>
                     <div>
-                        <p>Written by <?php echo $post -> name; ?> on <?php echo $post -> postCreated; ?></p>
+                        <p>Written by <?php echo $post -> first_name; ?> <?php echo $post -> last_name; ?> on <?php echo $post -> postCreated; ?></p>
                     </div>
                 </section>
-                <div class="post-body">
-                    <p><?php echo substr($post -> body, 0, 300); ?>...</p>
+                <div class="post-body snippet">
+                    <div><?php $parsedown = new Parsedown();
+                        echo $parsedown -> text(substr($post -> body, 0, 300)); echo '...'; ?>
+                    </div>
                     <div>
                         <a href="<?php echo URLROOT; ?>/show/<?php echo $post -> postId; ?>">Read More</a>
                     </div>

@@ -64,19 +64,26 @@
                 $_POST = filter_input_array(htmlspecialchars(INPUT_POST));
 
                 $form_data = [
-                    'name' => trim($_POST['name']),
+                    'first_name' => trim($_POST['first_name']),
+                    'last_name' => trim($_POST['last_name']),
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
-                    'name_error' => '',
+                    'first_name_error' => '',
+                    'last_name_error' => '',
                     'email_error' => '',
                     'password_error' => '',
                     'confirm_password_error' => ''
                 ];
 
                 //validate name
-                if(empty($form_data['name'])){
-                    $form_data['name_error'] = 'Please enter name';
+                if(empty($form_data['first_name'])){
+                    $form_data['first_name_error'] = 'Please enter first name';
+                }
+
+                //validate name
+                if(empty($form_data['last_name'])){
+                    $form_data['last_name_error'] = 'Please enter last name';
                 }
 
                 //validate email
@@ -106,7 +113,7 @@
                 }
 
                 //make sure errors are empty
-                if(empty($form_data['email_error']) && empty($form_data['name_error']) && empty($form_data['password_error']) && empty($form_data['confirm_password_error'])){
+                if(empty($form_data['email_error']) && empty($form_data['first_name_error']) && empty($form_data['last_name_error']) && empty($form_data['password_error']) && empty($form_data['confirm_password_error'])){
                     //validated
                     
                     //hash password
@@ -137,11 +144,13 @@
                 ];
 
                 $form_data = [
-                    'name' => '',
+                    'first_name' => '',
+                    'last_name' => '',
                     'email' => '',
                     'password' => '',
                     'confirm_password' => '',
-                    'name_error' => '',
+                    'first_name_error' => '',
+                    'last_name_error' => '',
                     'email_error' => '',
                     'password_error' => '',
                     'confirm_password_error' => ''
@@ -239,7 +248,7 @@
 
         public function createUserSession($user){
             $_SESSION['user_id'] = $user -> id;
-            $_SESSION['user_name'] = $user -> name;
+            $_SESSION['user_name'] = $user -> first_name;
             $_SESSION['user_email'] = $user -> email;
             redirect('posts');
         }

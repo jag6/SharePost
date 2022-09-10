@@ -32,11 +32,13 @@
         <section class="post-title">
             <h1><?php echo $data['post'] -> title; ?></h1>
             <div class="post-author">
-                <p>Written by <?php echo $data['user'] -> name; ?> on <?php echo $data['post'] -> created_at;?></p>
+                <p>Written by <?php echo $data['user'] -> first_name; ?> <?php echo $data['user'] -> last_name; ?> on <?php echo $data['post'] -> created_at;?></p>
             </div>
         </section>
         <div class="post-body">
-            <p><?php echo $data['post'] -> body; ?></p>
+            <p><?php  
+                $parsedown = new Parsedown();
+                echo $parsedown -> text($data['post'] -> body); ?></p>
             <?php if($data['post'] -> user_id == $_SESSION['user_id']) : ?>
                 <div class="show-btns">
                     <a href="<?php echo URLROOT; ?>/edit/<?php echo $data['post'] -> id ?>">EDIT</a>

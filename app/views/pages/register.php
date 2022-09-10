@@ -4,9 +4,14 @@
         <?php require APPROOT . '/views/includes/topContainer.php'; ?>
         <form action="<?php echo URLROOT; ?>/register" method="post">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" class="<?php echo (!empty($form_data['name_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['name']; ?>">
-                <span class="invalid"><?php echo $form_data['name_error']; ?></span>
+                <label for="first_name"> First Name:</label>
+                <input type="text" name="first_name" class="<?php echo (!empty($form_data['first_name_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['first_name']; ?>">
+                <span class="invalid"><?php echo $form_data['first_name_error']; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" class="<?php echo (!empty($form_data['last_name_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['last_name']; ?>">
+                <span class="invalid"><?php echo $form_data['last_name_error']; ?></span>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
