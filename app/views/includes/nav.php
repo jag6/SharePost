@@ -30,7 +30,7 @@
         <div class="navbar-right">
             <ul>
                 <?php if(isset($_SESSION['user_id'])) :?>
-                <li>
+                <li class="display-name">
                     <a class="user-name-nav" href="">Welcome, <?php echo $_SESSION['user_name']; ?></a>
                 </li>
                 <li>

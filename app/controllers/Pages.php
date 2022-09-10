@@ -11,9 +11,12 @@
                 'meta_description' => 'Welcome to your blogging parardise. Here you will find millions of interesting articles perfectly tailored for your reading pleasure and needs'
             ];
 
+            $posts = $this -> postModel -> getPosts();
+
             $data = [
                 'title' => 'SharePost',  
-                'description' => 'Welcome to your blogging parardise. Here you will find millions of interesting articles perfectly tailored for your reading pleasure and needs'
+                'description' => 'Welcome to your blogging parardise. Here you will find millions of interesting articles perfectly tailored for your reading pleasure and needs',
+                'posts' => $posts
             ];
             $this -> view('pages/index', $meta_data, $data);
         }

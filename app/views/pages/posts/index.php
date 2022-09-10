@@ -15,14 +15,14 @@
                         <p>Written by <?php echo $post -> first_name; ?> <?php echo $post -> last_name; ?> on <?php echo $post -> postCreated; ?></p>
                     </div>
                 </section>
-                <div class="post-body snippet">
-                    <div><?php $parsedown = new Parsedown();
+                <section class="post-body snippet">
+                    <section><?php $parsedown = new Parsedown();
                         echo $parsedown -> text(substr($post -> body, 0, 300)); echo '...'; ?>
-                    </div>
+                    </section>
                     <div>
                         <a href="<?php echo URLROOT; ?>/show/<?php echo $post -> postId; ?>">Read More</a>
                     </div>
-                </div>
+                </section>
                 <div class="line-break"></div>
             </section>
         <?php endforeach; ?>

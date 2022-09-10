@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/style.css">
+    <?php require APPROOT . '/views/includes/stylesheets.php'; ?>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="<?php echo URLROOT; ?>/public/images/logo.svg" type="image/svg">
     <!-- MetaData -->
@@ -18,6 +18,5 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $meta_data['meta_title'] ?></title>
-   
-    <?php echo '<script src="<?php echo URLROOT; ?>/public/scripts/main.js" defer></script>'; ?>
+    <script src="<?php echo URLROOT; ?>/public/scripts/main.js" defer></script>
 </head>

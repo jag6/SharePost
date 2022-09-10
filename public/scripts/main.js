@@ -1,11 +1,12 @@
-const mobileNav = document.getElementById("mobile-nav");
+document.getElementById("hamburger-icon").onclick = () => openToggleNav();
+document.getElementById("close-btn").onclick = () => closeToggleNav();
 
-document.getElementById("hamburger-icon").addEventListener = ('click', () => {
-    mobileNav.style.height = "100%";
-});
+const openToggleNav = () => {
+    document.getElementById("mobile-nav").style.height = "100%";
+}
 
-document.getElementById("close-btn").addEventListener = ('click', () => {
-    mobileNav.style.height = "0%";
-}); 
+const closeToggleNav = () => {
+    document.getElementById("mobile-nav").style.height = "0%";
+}
 
 

@@ -1,0 +1,223 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    justify-content: center;
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.posts-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.phi {
+    border-bottom: .5rem solid #054D57;
+    margin-bottom: 2rem;
+    background-color: #f3f3f3;
+    padding: 2rem 5% 4rem 5%;
+}
+
+.posts-header a, .back-btn a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    line-height: 48px;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+    height: 64px;
+    background-color: #FFEA47;
+    border-radius: 20px;
+    width: 230px;
+    height: 64px;
+}
+
+.posts-header a:hover, .back-btn a:hover {
+    opacity: .8;
+}
+
+.posts img {
+    margin-right: 1rem;
+    width: 40px;
+}
+
+.post {
+    margin-bottom: 4rem;
+    padding: 1rem 5% 2rem 5%;
+    background-color: #f3f3f3;
+    border-radius: 20px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.posts .form-group {
+    margin-bottom: 2rem;
+}
+
+.posts .form-group label {
+    margin-bottom: .5rem;
+}
+
+.post-title div {
+    margin-top: .5rem;
+}
+
+.post-author p {
+    text-align: center;
+}
+
+.post-body {
+    margin-top: 1rem;
+}
+
+.post-body div {
+    margin-top: 2rem;
+}
+
+.snippet h2 {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 1rem;
+}
+
+.post-body a, .post-body form button  {
+    font-size: 21px;
+    line-height: 32px;
+    font-weight: 700;
+    background-color: #015732;
+    padding: .5rem 2rem;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.post-body a:hover, .post-body form button:hover {
+    opacity: .8;
+}
+
+.back-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-bottom: 4rem;
+}
+
+.back-btn a {
+    background-color: #FFEA47;
+    width: 150px;
+    font-size: 18px;
+    line-height: 32px;
+    height: 56px;
+}
+
+.back-btn img {
+    margin-right: .5rem;
+}
+
+.cancel-btn a {
+    color: #C74F4C;
+}
+
+.cancel-btn a:hover {
+    border-bottom: 4px solid #C74F4C;
+    transition: .2s ease-in-out;
+}
+
+.new {
+    background-color: #c7c7c7;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-top: 2rem;
+}
+
+.new-header {
+    padding: 0 0 4rem 0;
+}
+
+.show {
+    padding-top: 2rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    justify-content: center;
+}
+
+.show h1 {
+    text-align: center;
+}
+
+.show h2, .show h3, .show h4, .show h5 {
+    margin-bottom: 1rem;
+}
+
+.show p {
+    margin-bottom: 2rem;
+}
+
+.show p:last-of-type {
+    margin-bottom: 3rem;
+}
+
+.show .post-body {
+    margin-top: 4rem;
+}
+
+.post-body p {
+    font-weight: 700;
+}
+
+.show-btns {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+.show-btns form button {
+    background-color: #C74F4C;
+    color: #000;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+    .posts {
+        padding: 0;
+    }
+
+    .post {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .posts-header {
+        flex-direction: column;
+    }
+
+    .post-title h1, .post-author p {
+        text-align: left;
+    }
+
+    .posts-header a {
+        margin-top: 2rem;
+    }
+
+    .show-btns a, .show-btns form {
+        width: 50%;
+    }
+
+    .show-btns a {
+        text-align: center;
+        margin-right: 1rem;
+    }
+}
