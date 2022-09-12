@@ -6,7 +6,7 @@
         <section class="posts-header new-header">
             <h1>New Post</h1>
         </section>
-        <form action="<?php echo URLROOT; ?>/new" method="post">
+        <form action="<?php echo URLROOT; ?>/new" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Title:</label>
                 <input type="text" name="title" class="<?php echo (!empty($form_data['title_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['title']; ?>">
@@ -18,14 +18,19 @@
                 <span class="invalid"><?php echo $form_data['body_error']; ?></span>
             </div>
             <div class="form-group">
-                <label for="meta_title">MetaData Title:</label>
-                <input type="text" name="meta_title" class="<?php echo (!empty($form_data['meta_title_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['meta_title']; ?>">
-                <span class="invalid"><?php echo $form_data['meta_title_error']; ?></span>
+                <label for="description">Description:</label>
+                <textarea name="description" class="<?php echo (!empty($form_data['description_error'])) ? 'invalid' : ''; ?>"><?php echo $form_data['description']; ?></textarea>
+                <span class="invalid"><?php echo $form_data['description_error']; ?></span>
             </div>
             <div class="form-group">
-                <label for="meta_description">MetaData Description:</label>
-                <textarea name="meta_description" class="<?php echo (!empty($form_data['meta_description_error'])) ? 'invalid' : ''; ?>"><?php echo $form_data['meta_description']; ?></textarea>
-                <span class="invalid"><?php echo $form_data['meta_description_error']; ?></span>
+                <label for="image">Image:</label>
+                <input type="file" name="image" class="<?php echo (!empty($form_data['image_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['image']; ?>">
+                <span class="invalid"><?php echo $form_data['image_error']; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="image_description">Image Description:</label>
+                <input type="text" name="image_description" class="<?php echo (!empty($form_data['image_description_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['image_description']; ?>">
+                <span class="invalid"><?php echo $form_data['image_description_error']; ?></span>
             </div>
             <div class="form-btns">
                 <div>

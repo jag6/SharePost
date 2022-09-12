@@ -24,12 +24,13 @@
         }
 
         public function savePost($form_data){
-            $this -> db -> query('INSERT INTO posts (title, body, meta_title, meta_description, user_id) VALUES(:title, :body, :meta_title, :meta_description, :user_id)');
+            $this -> db -> query('INSERT INTO posts (title, body, description, image, image_description, user_id) VALUES(:title, :body, :description, :image, :image_description, :user_id)');
             //bind values
             $this -> db -> bind(':title', $form_data['title']);
             $this -> db -> bind(':body', $form_data['body']);
-            $this -> db -> bind(':meta_title', $form_data['meta_title']);
-            $this -> db -> bind(':meta_description', $form_data['meta_description']);
+            $this -> db -> bind(':description', $form_data['description']);
+            $this -> db -> bind(':image', $form_data['image']);
+            $this -> db -> bind(':image_description', $form_data['image_description']);
             $this -> db -> bind(':user_id', $form_data['user_id']);
 
             //execute 
@@ -50,13 +51,14 @@
         }
 
         public function updatePost($form_data){
-            $this -> db -> query('UPDATE posts SET title = :title, body = :body, meta_title = :meta_title, meta_description = :meta_description WHERE id = :id');
+            $this -> db -> query('UPDATE posts SET title = :title, body = :body, description = :description, image = :image, image_description = :image_description WHERE id = :id');
             //bind values
             $this -> db -> bind(':id', $form_data['id']);
             $this -> db -> bind(':title', $form_data['title']);
             $this -> db -> bind(':body', $form_data['body']);
-            $this -> db -> bind(':meta_title', $form_data['meta_title']);
-            $this -> db -> bind(':meta_description', $form_data['meta_description']);
+            $this -> db -> bind(':description', $form_data['description']);
+            $this -> db -> bind(':image', $form_data['image']);
+            $this -> db -> bind(':image_description', $form_data['image_description']);
 
             //execute 
             if($this -> db -> execute()){

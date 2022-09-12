@@ -1,3 +1,5 @@
+/*POSTS*/
+
 .posts {
     display: flex;
     flex-direction: column;
@@ -69,6 +71,8 @@
     margin-bottom: .5rem;
 }
 
+/*POST*/
+
 .post-title div {
     margin-top: .5rem;
 }
@@ -137,7 +141,7 @@
     background-color: #c7c7c7;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    padding-top: 2rem;
+    padding: 2rem 5%;
 }
 
 .new-header {
@@ -171,7 +175,7 @@
 }
 
 .show .post-body {
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 
 .post-body p {
@@ -191,10 +195,6 @@
 }
 
 @media only screen and (min-width: 0px) and (max-width: 576px) {
-    .posts {
-        padding: 0;
-    }
-
     .post {
         padding-left: 8%;
         padding-right: 8%;

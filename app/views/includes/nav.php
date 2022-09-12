@@ -31,7 +31,7 @@
             <ul>
                 <?php if(isset($_SESSION['user_id'])) :?>
                 <li class="display-name">
-                    <a class="user-name-nav" href="">Welcome, <?php echo $_SESSION['user_name']; ?></a>
+                    <a href="">Welcome, <?php echo $_SESSION['user_name']; ?></a>
                 </li>
                 <li>
                     <a href="<?php echo URLROOT; ?>/logout">LOGOUT</a>

@@ -148,12 +148,12 @@ footer {
     margin-bottom: 1rem;
 }
 
-.top-container div {
+/*.top-container div {
     width: 700px;
     display: flex;
     margin: 0 auto;
     justify-content: center;
-}
+}*/
 
 .top-container p {
     font-size: 21px;

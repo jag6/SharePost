@@ -12,11 +12,16 @@
                         <h2><?php echo $post -> title; ?></h2>
                     </section>
                     <div>
-                        <p>Written by <?php echo $post -> first_name; ?> <?php echo $post -> last_name; ?> on <?php echo $post -> postCreated; ?></p>
+                        <p>Written by <?php echo $post -> first_name; ?> <?php echo $post -> last_name; ?> 
+                            on 
+                            <?php $date = new DateTime($post -> postCreated);
+                            echo $date->format('d/m/y');?>
+                        </p>
                     </div>
                 </section>
                 <section class="post-body snippet">
-                    <section><?php $parsedown = new Parsedown();
+                    <section>
+                        <?php $parsedown = new Parsedown();
                         echo $parsedown -> text(substr($post -> body, 0, 300)); echo '...'; ?>
                     </section>
                     <div>

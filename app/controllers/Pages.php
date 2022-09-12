@@ -8,14 +8,14 @@
         public function index(){
             $meta_data = [
                 'meta_title' => 'SharePost: Your Blogtopia',
-                'meta_description' => 'Welcome to your blogging parardise. Here you will find millions of interesting articles perfectly tailored for your reading pleasure and needs'
+                'meta_description' => 'Welcome to your blogging parardise. Here you will find millions of interesting articles perfectly tailored for your reading pleasure.'
             ];
 
             $posts = $this -> postModel -> getPosts();
 
             $data = [
                 'title' => 'SharePost',  
-                'description' => 'Welcome to your blogging parardise. Here you will find millions of interesting articles perfectly tailored for your reading pleasure and needs',
+                'description' => 'Welcome to your blogging parardise.<br>Here you will find millions of interesting articles<br>perfectly tailored for your reading pleasure.',
                 'posts' => $posts
             ];
             $this -> view('pages/index', $meta_data, $data);
@@ -305,13 +305,15 @@
                 $form_data = [
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
-                    'meta_title' => trim($_POST['meta_title']),
-                    'meta_description' => trim($_POST['meta_description']),
+                    'description' => trim($_POST['description']),
+                    'image' => trim($_POST['image']),
+                    'image_description' => trim($_POST['image_description']),
                     'user_id' => $_SESSION['user_id'],
                     'title_error' => '',
                     'body_error' => '',
-                    'meta_title_error' => '',
-                    'meta_description_error' => ''
+                    'description_error' => '',
+                    'image_error' => '',
+                    'image_description_error'
                 ];
 
                 //validate title
@@ -324,18 +326,26 @@
                     $form_data['body_error'] = 'Please enter body text';
                 }
 
-                //validate meta_title
-                if(empty($form_data['meta_title'])){
-                    $form_data['meta_title_error'] = 'Please enter metadata title';
+                //validate description
+                if(empty($form_data['description'])){
+                    $form_data['description_error'] = 'Please enter description';
                 }
 
-                //validate meta_description
-                if(empty($form_data['meta_description'])){
-                    $form_data['meta_description_error'] = 'Please enter metadata description';
+                //upload image
+                $target_dir = 'http://localhost/sharepost/public/images/';
+                $form_data['image'] = $target_dir . basename($_FILES['image']['name']);
+
+                if(empty($form_data['image'])){
+                    $form_data['image_error'] = 'Please upload image';
+                }
+
+                //validate image_description 
+                if(empty($form_data['image_description'])){
+                    $form_data['image_description_error'] = 'Please enter image description';
                 }
 
                 //make sure errors are empty
-                if(empty($form_data['title_error']) && empty($form_data['body_error']) && empty($form_data['meta_title_error']) && empty($form_data['meta_description_error'])){
+                if(empty($form_data['title_error']) && empty($form_data['body_error']) && empty($form_data['description_error']) && empty($form_data['image_error']) && empty($form_data['image_description_error'])){
                     //validated
                     if($this -> postModel -> savePost($form_data)){
                         flash('post_message', 'Post Saved!');
@@ -362,13 +372,15 @@
                 $form_data = [
                     'title' => '',
                     'body' => '',
-                    'meta_title' => '',
-                    'meta_description' => '',
+                    'description' => '',
+                    'image' => '',
+                    'image_description' => '',
                     'user_id' => $_SESSION['user_id'],
                     'title_error' => '',
                     'body_error' => '',
-                    'meta_title_error' => '',
-                    'meta_description_error' => ''
+                    'description_error' => '',
+                    'image_error' => '',
+                    'image_description_error' => ''
                 ];
             }
             $this -> view('pages/posts/new', $meta_data, $data, $form_data);
@@ -396,13 +408,15 @@
                     'id' => $id,
                     'title' => trim($_POST['title']),
                     'body' => trim($_POST['body']),
-                    'meta_title' => trim($_POST['meta_title']),
-                    'meta_description' => trim($_POST['meta_description']),
+                    'description' => trim($_POST['description']),
+                    'image' => trim($_POST['image']),
+                    'image_description' => trim($_POST['image_description']),
                     'user_id' => $_SESSION['user_id'],
                     'title_error' => '',
                     'body_error' => '',
-                    'meta_title_error' => '',
-                    'meta_description_error' => ''
+                    'description_error' => '',
+                    'image_error' => '',
+                    'image_description_error' => ''
                 ];
 
                 //validate title
@@ -415,18 +429,26 @@
                     $form_data['body_error'] = 'Please enter body text';
                 }
 
-                //validate meta_title
-                if(empty($form_data['meta_title'])){
-                    $form_data['meta_title_error'] = 'Please enter metadata title';
+                //validate description
+                if(empty($form_data['description'])){
+                    $form_data['description_error'] = 'Please enter description';
                 }
 
-                //validate meta_description
-                if(empty($form_data['meta_description'])){
-                    $form_data['meta_description_error'] = 'Please enter metadata description';
+                //upload image
+                $target_dir = 'http://localhost/sharepost/public/images/';
+                $form_data['image'] = $target_dir . ($form_data['image']);
+                
+                if(empty($form_data['image'])){
+                    $form_data['image_error'] = 'Please upload image';
+                }
+
+                //validate image_description 
+                if(empty($form_data['image_description'])){
+                    $form_data['image_description_error'] = 'Please enter image description';
                 }
 
                 //make sure errors are empty
-                if(empty($form_data['title_error']) && empty($form_data['body_error']) && empty($form_data['meta_title_error']) && empty($form_data['meta_description_error'])){
+                if(empty($form_data['title_error']) && empty($form_data['body_error']) && empty($form_data['description_error']) && empty($form_data['image_error']) && empty($form_data['image_description_error'])){
                     //validated
                     if($this -> postModel -> updatePost($form_data)){
                         flash('post_message', 'Post Saved!');
@@ -453,12 +475,15 @@
                     'id' => $id,
                     'title' => $post -> title,
                     'body' => $post -> body,
-                    'meta_title' => $post -> meta_title,
-                    'meta_description' => $post -> meta_description,
+                    'title' => $post -> title,
+                    'description' => $post -> description,
+                    'image' => $post -> image,
+                    'image_description' => $post -> image_description,
                     'title_error' => '',
                     'body_error' => '',
-                    'meta_title_error' => '',
-                    'meta_description_error' => ''
+                    'description_error' => '',
+                    'image_error' => '',
+                    'image_description_error' => ''
                 ];
             }
             $this -> view('pages/posts/edit', $meta_data, $data, $form_data);
