@@ -19,7 +19,7 @@
             </section>
             <section class="post-body snippet">
                 <div>
-                    <p><?php echo $post -> meta_description; ?></p>
+                    <p><?php echo $post -> description; ?></p>
                 </div>
                 <div>
                     <a href="<?php echo URLROOT; ?>/show/<?php echo $post -> postId; ?>">Read More</a>

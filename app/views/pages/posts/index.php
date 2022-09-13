@@ -22,7 +22,8 @@
                 <section class="post-body snippet">
                     <section>
                         <?php $parsedown = new Parsedown();
-                        echo $parsedown -> text(substr($post -> body, 0, 300)); echo '...'; ?>
+                        echo $parsedown -> text(substr($post -> body, 0, 300).' .....'); 
+                        ?>
                     </section>
                     <div>
                         <a href="<?php echo URLROOT; ?>/show/<?php echo $post -> postId; ?>">Read More</a>

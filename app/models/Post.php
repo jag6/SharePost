@@ -24,11 +24,12 @@
         }
 
         public function savePost($form_data){
-            $this -> db -> query('INSERT INTO posts (title, body, description, image, image_description, user_id) VALUES(:title, :body, :description, :image, :image_description, :user_id)');
+            $this -> db -> query('INSERT INTO posts (title, body, slug, description, image, image_description, user_id) VALUES(:title, :body, :description, :image, :image_description, :user_id)');
             //bind values
             $this -> db -> bind(':title', $form_data['title']);
-            $this -> db -> bind(':body', $form_data['body']);
+            $this -> db -> bind(':slug', $form_data['slug']);
             $this -> db -> bind(':description', $form_data['description']);
+            $this -> db -> bind(':body', $form_data['body']);
             $this -> db -> bind(':image', $form_data['image']);
             $this -> db -> bind(':image_description', $form_data['image_description']);
             $this -> db -> bind(':user_id', $form_data['user_id']);

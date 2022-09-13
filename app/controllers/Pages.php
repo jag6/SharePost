@@ -304,12 +304,14 @@
 
                 $form_data = [
                     'title' => trim($_POST['title']),
-                    'body' => trim($_POST['body']),
+                    'slug' => trim($_POST['slug']),
                     'description' => trim($_POST['description']),
+                    'body' => trim($_POST['body']),
                     'image' => trim($_POST['image']),
                     'image_description' => trim($_POST['image_description']),
                     'user_id' => $_SESSION['user_id'],
                     'title_error' => '',
+                    'slug_error' => '',
                     'body_error' => '',
                     'description_error' => '',
                     'image_error' => '',
@@ -321,14 +323,19 @@
                     $form_data['title_error'] = 'Please enter title';
                 }
 
-                //validate body
-                if(empty($form_data['body'])){
-                    $form_data['body_error'] = 'Please enter body text';
+                //validate slug
+                if(empty($form_data['slug'])){
+                    $form_data['slug_error'] = 'Please enter slug';
                 }
 
                 //validate description
                 if(empty($form_data['description'])){
                     $form_data['description_error'] = 'Please enter description';
+                }
+
+                //validate body
+                if(empty($form_data['body'])){
+                    $form_data['body_error'] = 'Please enter body text';
                 }
 
                 //upload image
@@ -345,7 +352,7 @@
                 }
 
                 //make sure errors are empty
-                if(empty($form_data['title_error']) && empty($form_data['body_error']) && empty($form_data['description_error']) && empty($form_data['image_error']) && empty($form_data['image_description_error'])){
+                if(empty($form_data['title_error']) && empty($form_data['slug_error']) && empty($form_data['description_error']) && empty($form_data['body_error']) && empty($form_data['image_error']) && empty($form_data['image_description_error'])){
                     //validated
                     if($this -> postModel -> savePost($form_data)){
                         flash('post_message', 'Post Saved!');
@@ -371,14 +378,16 @@
 
                 $form_data = [
                     'title' => '',
-                    'body' => '',
+                    'slug' => '',
                     'description' => '',
+                    'body' => '',
                     'image' => '',
                     'image_description' => '',
                     'user_id' => $_SESSION['user_id'],
                     'title_error' => '',
-                    'body_error' => '',
+                    'slug_error' => '',
                     'description_error' => '',
+                    'body_error' => '',
                     'image_error' => '',
                     'image_description_error' => ''
                 ];
@@ -407,14 +416,16 @@
                 $form_data = [
                     'id' => $id,
                     'title' => trim($_POST['title']),
-                    'body' => trim($_POST['body']),
+                    'slug' => trim($_POST['slug']),
                     'description' => trim($_POST['description']),
+                    'body' => trim($_POST['body']),
                     'image' => trim($_POST['image']),
                     'image_description' => trim($_POST['image_description']),
                     'user_id' => $_SESSION['user_id'],
                     'title_error' => '',
-                    'body_error' => '',
+                    'slug_error' => '',
                     'description_error' => '',
+                    'body_error' => '',
                     'image_error' => '',
                     'image_description_error' => ''
                 ];
@@ -424,14 +435,19 @@
                     $form_data['title_error'] = 'Please enter title';
                 }
 
-                //validate body
-                if(empty($form_data['body'])){
-                    $form_data['body_error'] = 'Please enter body text';
+                //validate slug
+                if(empty($form_data['slug'])){
+                    $form_data['slug_error'] = 'Please enter slug';
                 }
 
                 //validate description
                 if(empty($form_data['description'])){
                     $form_data['description_error'] = 'Please enter description';
+                }
+
+                //validate body
+                if(empty($form_data['body'])){
+                    $form_data['body_error'] = 'Please enter body text';
                 }
 
                 //upload image
@@ -448,7 +464,7 @@
                 }
 
                 //make sure errors are empty
-                if(empty($form_data['title_error']) && empty($form_data['body_error']) && empty($form_data['description_error']) && empty($form_data['image_error']) && empty($form_data['image_description_error'])){
+                if(empty($form_data['title_error']) && empty($form_data['slug_error']) && empty($form_data['description_error']) && empty($form_data['body_error']) && empty($form_data['image_error']) && empty($form_data['image_description_error'])){
                     //validated
                     if($this -> postModel -> updatePost($form_data)){
                         flash('post_message', 'Post Saved!');
@@ -474,14 +490,15 @@
                 $form_data = [
                     'id' => $id,
                     'title' => $post -> title,
-                    'body' => $post -> body,
-                    'title' => $post -> title,
+                    'slug' => $post -> slug,
                     'description' => $post -> description,
+                    'body' => $post -> body,
                     'image' => $post -> image,
                     'image_description' => $post -> image_description,
                     'title_error' => '',
-                    'body_error' => '',
+                    'slug_error' => '',
                     'description_error' => '',
+                    'body_error' => '',
                     'image_error' => '',
                     'image_description_error' => ''
                 ];
